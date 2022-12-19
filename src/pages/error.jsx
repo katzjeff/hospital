@@ -25,7 +25,7 @@ function error() {
           </div>
         </div>
         <div>
-          <img src={ErrorPage} />
+          <img src={ErrorPage} alt="Error Page-404"/>
         </div>
       </div>
     </>

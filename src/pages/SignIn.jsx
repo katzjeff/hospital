@@ -48,6 +48,22 @@ function signin() {
               </div>
               <div>
                 <label
+                  for="facility"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  Select your facility
+                </label>
+                <input
+                  type="facility"
+                  name="facility"
+                  id="facility"
+                  placeholder="Select your facility name from the list..."
+                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  required=""
+                />
+              </div>
+              <div>
+                <label
                   for="password"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
@@ -57,7 +73,7 @@ function signin() {
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="••••••••"
+                  placeholder="Enter your password"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
                 />
