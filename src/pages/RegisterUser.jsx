@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function RegisterUser() {
+  const [user, setUser] = useState({
+    userName: "",
+    email: "",
+    facility: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUser((prev) => {
+      return {
+        ...prev,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Send form data to server or perform other actions
+    console.log(event)
+  }
+
   return (
     <div className="bg-gray-50 dark:bg-[#162daa]">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
@@ -29,7 +53,7 @@ function RegisterUser() {
             <h1 class="flex justify-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Set up my account
             </h1>
-            <form class="space-y-4 md:space-y-6" action="#">
+            <form class="space-y-4 md:space-y-6" >
               <div>
                 <label
                   for="username"
@@ -41,6 +65,8 @@ function RegisterUser() {
                   type="username"
                   name="username"
                   id="username"
+                  onChange={handleChange}
+                  value={user.userName}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="Enter your username"
                   required=""
@@ -57,6 +83,8 @@ function RegisterUser() {
                   type="email"
                   name="email"
                   id="email"
+                  onChange={handleChange}
+                  value={user.email}
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="name@company.com"
                   required=""
@@ -73,6 +101,8 @@ function RegisterUser() {
                   type="facility"
                   name="facility"
                   id="facility"
+                  onChange={handleChange}
+                  value={user.facility}
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
                 >
@@ -93,6 +123,8 @@ function RegisterUser() {
                   type="password"
                   name="password"
                   id="password"
+                  onChange={handleChange}
+                  value={user.password}
                   placeholder="••••••••"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
@@ -109,6 +141,8 @@ function RegisterUser() {
                   type="confirm-password"
                   name="confirm-password"
                   id="confirm-password"
+                  onChange={handleChange}
+                  value={user.confirmPassword}
                   placeholder="••••••••"
                   class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
@@ -141,6 +175,7 @@ function RegisterUser() {
               </div>
               <button
                 type="submit"
+                onSubmit={handleSubmit}
                 class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
               >
                 Create my account
